@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 class Summoner(
     @Id var id: ObjectId? = null,
-    @DBRef(lazy = false) val user: User,
+    val userId: ObjectId,
     val summonerId: String,
     val accountId: String,
     val puuid: String,
