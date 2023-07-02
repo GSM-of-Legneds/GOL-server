@@ -1,4 +1,4 @@
-package dev.yangsijun.gol.api
+package dev.yangsijun.gol
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
