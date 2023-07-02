@@ -1,0 +1,19 @@
+services:
+  mongodb:
+    image: 'mongo:6'
+    environment:
+      - 'MONGO_INITDB_DATABASE=mydatabase'
+      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+      - 'MONGO_INITDB_ROOT_USERNAME=root'
+    ports:
+      - '27017'
+    volumes:
+      - gol-mongo-volume:/data/db
+    networks:
+      - gol-backend-network
+
+volumes:
+  gol-mongo-volume: {}
+
+networks:
+  gol-backend-network: {}
