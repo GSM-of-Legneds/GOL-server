@@ -1,11 +1,11 @@
-package dev.yangsijun.gol.api
+package dev.yangsijun.gol
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ApiApplication
+class BatchApplication
 
 fun main(args: Array<String>) {
-	runApplication<ApiApplication>(*args)
+	runApplication<BatchApplication>(*args)
 }
