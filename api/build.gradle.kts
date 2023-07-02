@@ -13,7 +13,7 @@ dependencies {
 
 	/* security */
 	implementation("org.springframework.boot:spring-boot-starter-security")
-	implementation("com.github.YangSiJun528:GAuth-spring-boot-starter:1.0.0")
+	implementation("com.github.YangSiJun528:GAuth-spring-boot-starter:1.0.1")
 
 	/* production */
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
