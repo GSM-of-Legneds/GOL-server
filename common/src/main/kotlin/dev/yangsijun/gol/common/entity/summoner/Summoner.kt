@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
+// puuid 인덱스 추가
 class Summoner(
     @Id var id: ObjectId? = null,
     val userId: ObjectId,

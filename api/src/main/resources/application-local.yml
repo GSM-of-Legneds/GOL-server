@@ -5,6 +5,9 @@ spring:
     mongodb:
       auto-index-creation: true
 
+riot:
+  api-key: ${API_KEY}
+
 gauth:
   client-id:
   client-secret:
@@ -18,3 +21,6 @@ logging:
           mongodb:
             core:
               MongoTemplate: DEBUG
+    dev:
+      yangsijun:
+        gol: DEBUG

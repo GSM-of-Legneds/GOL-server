@@ -42,7 +42,7 @@ class TestRunner(
         template.insert<User>(user)
 
         val summoner: Summoner = Summoner(
-            user = user,
+            userId = user.id!!,
             summonerId = "P893mr8WYQG6ITMjD-xj-7PE7j3aL87aXkjmq3t4G9wDCX0",
             accountId = "yVBihO_Uu-t64I1MCSgq2MBwOy9Tzko9iFzJiAethx_u",
             puuid = "54mQFtsBR1DAqJbanmn1JFKXQVnQ90Rvu_lxocLvc7c_cd8N8bFcL4FXJJ4FgPARtkZugXNmCgh92A",
