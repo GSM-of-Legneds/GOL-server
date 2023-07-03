@@ -6,9 +6,10 @@ spring:
       auto-index-creation: true
 
 gauth:
-  client-id:
-  client-secret:
-  redirect-uri:
+  client-id: "9e3c6c50d13c408396a64768505f58e88791cab81502424bb49c60577d7608d7"
+  client-secret: ${GAUTH_CLIENT_SECRET}
+  redirect-uri: http://localhost:8080/login/code/gauth
+
 
 logging:
   level:
