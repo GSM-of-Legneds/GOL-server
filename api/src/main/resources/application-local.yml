@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      auto-index-creation: true
+
+riot:
+  api-key: ${API_KEY}
+
+gauth:
+  client-id:
+  client-secret:
+  redirect-uri:
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+    dev:
+      yangsijun:
+        gol: DEBUG
