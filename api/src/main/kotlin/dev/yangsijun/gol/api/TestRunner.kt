@@ -10,10 +10,10 @@ import dev.yangsijun.gol.common.entity.statistics.Statistics
 import dev.yangsijun.gol.common.entity.summoner.Summoner
 import dev.yangsijun.gol.common.entity.user.User
 import gauth.GAuthUserInfo
+import org.bson.types.ObjectId
 import org.springframework.boot.CommandLineRunner
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Component
-
 
 @Component
 class TestRunner(
@@ -21,7 +21,11 @@ class TestRunner(
 ): CommandLineRunner {
 
     override fun run(vararg args: String?) {
-        // doing()
+        //doing()
+    }
+
+    companion object {
+        val userId: String = "5f6d775c29be48f7e50ea68e"
     }
 
     fun doing() {
@@ -42,7 +46,9 @@ class TestRunner(
         template.insert<User>(user)
 
         val summoner: Summoner = Summoner(
+            id = ObjectId(TestRunner.userId),
             userId = user.id!!,
+            user = user,
             summonerId = "P893mr8WYQG6ITMjD-xj-7PE7j3aL87aXkjmq3t4G9wDCX0",
             accountId = "yVBihO_Uu-t64I1MCSgq2MBwOy9Tzko9iFzJiAethx_u",
             puuid = "54mQFtsBR1DAqJbanmn1JFKXQVnQ90Rvu_lxocLvc7c_cd8N8bFcL4FXJJ4FgPARtkZugXNmCgh92A",
