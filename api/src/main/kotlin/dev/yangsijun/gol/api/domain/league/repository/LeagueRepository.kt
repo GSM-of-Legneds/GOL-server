@@ -1,4 +1,4 @@
-package dev.yangsijun.gol.api.domain.summoner
+package dev.yangsijun.gol.api.domain.league.repository
 
 import dev.yangsijun.gol.common.entity.league.League
 import dev.yangsijun.gol.common.entity.summoner.Summoner

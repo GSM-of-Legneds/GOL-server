@@ -1,4 +1,4 @@
-package dev.yangsijun.gol.api.domain.ranking
+package dev.yangsijun.gol.api.domain.ranking.repository
 
 import dev.yangsijun.gol.common.entity.ranking.Ranking
 import dev.yangsijun.gol.common.entity.summoner.Summoner
