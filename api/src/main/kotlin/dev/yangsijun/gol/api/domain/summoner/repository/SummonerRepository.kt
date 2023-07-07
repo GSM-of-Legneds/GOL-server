@@ -1,4 +1,4 @@
-package dev.yangsijun.gol.api.domain.summoner
+package dev.yangsijun.gol.api.domain.summoner.repository
 
 import dev.yangsijun.gol.common.entity.summoner.Summoner
 import org.bson.types.ObjectId
