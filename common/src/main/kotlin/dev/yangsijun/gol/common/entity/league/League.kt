@@ -4,6 +4,7 @@ import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
 import dev.yangsijun.gol.common.common.enums.game.RankedType
 import dev.yangsijun.gol.common.common.enums.game.GameRankType
 import dev.yangsijun.gol.common.common.enums.game.TierType
+import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import dev.yangsijun.gol.common.entity.summoner.Summoner
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
@@ -27,4 +28,5 @@ class League(
     val freshBlood: Boolean,
     val hotStreak: Boolean
 ): BaseTimeEntity() {
+    override fun toString() = GolObjectUtils.reflectionToString(this)
 }
