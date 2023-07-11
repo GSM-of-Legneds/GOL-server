@@ -13,9 +13,6 @@ dependencies {
 	/* persistence */
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
-	/* dev */
-	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
-
 	/* test */
 	testImplementation("org.springframework.security:spring-security-test")
 }
