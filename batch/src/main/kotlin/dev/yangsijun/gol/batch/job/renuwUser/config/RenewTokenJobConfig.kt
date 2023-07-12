@@ -82,8 +82,7 @@ class RenewTokenJobConfig(
     @Bean
     fun renewUserJob(): Job {
         return JobBuilder(JOB_NAME, jobRepository)
-            //.preventRestart() // 같은 파라미터 재실행 방지
-            .incrementer(RunIdIncrementer()) // TODO 바꾸기
+            .preventRestart()
             .start(renewTokenStep())
             .next(renewUserStep())
             .build()
