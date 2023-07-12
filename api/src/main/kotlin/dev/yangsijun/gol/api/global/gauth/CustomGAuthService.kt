@@ -7,6 +7,7 @@ import dev.yangsijun.gauth.userinfo.DefaultGAuthUserService
 import dev.yangsijun.gauth.userinfo.GAuthAuthorizationRequest
 import dev.yangsijun.gol.api.domain.user.repository.TokenRepository
 import dev.yangsijun.gol.common.entity.token.Token
+import dev.yangsijun.gol.common.logger.LoggerDelegator
 import gauth.GAuth
 import gauth.GAuthToken
 import gauth.GAuthUserInfo
@@ -22,6 +23,7 @@ class CustomGAuthService(
     val gAuth: GAuth,
     val tokenRepository: TokenRepository,
 ) : DefaultGAuthUserService(gAuth) {
+    val log by LoggerDelegator()
 
     val GAUTH_CLIENT_CODE = "gauth_client_error"
 
@@ -29,6 +31,7 @@ class CustomGAuthService(
 
     override fun loadUser(userRequest: GAuthAuthorizationRequest): GAuthUser? {
         val token = getToken(userRequest)
+        log.debug("token : {}", "[ accessToken=" + token.accessToken + ", refreshToken=" + token.refreshToken+" ]")
 
         val info: GAuthUserInfo
         info = try {
@@ -43,7 +46,8 @@ class CustomGAuthService(
         }
 
         // gauth 사용자 토큰 저장
-        tokenRepository.save(Token(null, info.email, token.accessToken, token.refreshToken))
+        val savedTokenEntity = tokenRepository.save(Token(null, info.email, token.accessToken, token.refreshToken))
+        log.debug("Saved Token Entity : {}", savedTokenEntity.toString())
 
         return getGAuthUser(info, token)
     }
