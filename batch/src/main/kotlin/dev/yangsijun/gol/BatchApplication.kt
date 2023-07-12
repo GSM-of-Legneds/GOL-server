@@ -10,5 +10,5 @@ class BatchApplication
 
 fun main(args: Array<String>) {
 	val applicationContext = runApplication<BatchApplication>(*args)
-	exitProcess(SpringApplication.exit(applicationContext)) // 배치 완료 후 바로 process 종료
+	exitProcess(SpringApplication.exit(applicationContext)) // 배치 완료 후 바로 process 종료 + 아마 actuator 때문에 종료 안되는 듯?
 }
