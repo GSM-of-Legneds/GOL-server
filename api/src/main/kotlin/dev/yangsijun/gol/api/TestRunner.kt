@@ -23,7 +23,7 @@ class TestRunner(
 ): CommandLineRunner {
 
     override fun run(vararg args: String?) {
-        //doing()
+        doing()
     }
 
     companion object {
