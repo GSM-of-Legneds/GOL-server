@@ -9,46 +9,47 @@ class DummyDataUtil {
 
     companion object {
         val gauthInfo1: Map<String, Any> = mapOf(
-            "email" to "asdasd",
-            "name" to "양시준",
+            "email" to "s15011",
+            "name" to "곽희상",
             "grade" to 3,
-            "classNum" to 3,
-            "num" to 13,
+            "classNum" to 1,
+            "num" to 1,
             "gender" to "male",
-            "profileUrl" to "adasdasd",
-            "role" to "User"
+            "profileUrl" to "image55.png",
+            "role" to "Student"
         )
         val user1Id: String = "5f6d775c29be48f7e50ea68e"
-        val user1: User = User(info = GAuthUserInfo(gauthInfo1))
+        val user1: User = User(id = ObjectId(user1Id), info = GAuthUserInfo(gauthInfo1))
 
         val gauthInfo2: Map<String, Any> = mapOf(
-            "email" to "asdasd",
-            "name" to "양시준",
+            "email" to "s11011",
+            "name" to "홍길동",
             "grade" to 3,
             "classNum" to 3,
-            "num" to 13,
-            "gender" to "male",
-            "profileUrl" to "adasdasd",
-            "role" to "User"
+            "num" to 3,
+            "gender" to "female",
+            "profileUrl" to "image3.png",
+            "role" to "Student"
         )
         val user2Id: String = "64ade43154a38daea72fb205"
-        val user2: User = User(info = GAuthUserInfo(gauthInfo2))
+        val user2: User = User(id = ObjectId(user2Id), info = GAuthUserInfo(gauthInfo2))
 
         val gauthInfo3: Map<String, Any> = mapOf(
-            "email" to "asdasd",
+            "email" to "s21011",
             "name" to "양시준",
             "grade" to 3,
-            "classNum" to 3,
+            "classNum" to 1,
             "num" to 13,
             "gender" to "male",
-            "profileUrl" to "adasdasd",
-            "role" to "User"
+            "profileUrl" to "image123.png",
+            "role" to "Student"
         )
         val user3Id: String = "64ade439a7d479d4d77d8955"
-        val user3: User = User(info = GAuthUserInfo(gauthInfo3))
+        val user3: User = User(id = ObjectId(user3Id), info = GAuthUserInfo(gauthInfo3))
 
+        val summoner1Id: String = "64adeb88d48b4515f4b2372f"
         val summoner1: Summoner = Summoner(  // 함
-            id = ObjectId(user1Id),
+            id = ObjectId(summoner1Id),
             userId = user1.id!!,
             user = user1,
             summonerId = "DIiLDPb8BjQewHIbqm1adVUIAObCRiA-wHgAU7mKaGjRNgI",
@@ -59,8 +60,10 @@ class DummyDataUtil {
             revisionDate = 1689091968588,
             summonerLevel = 2501
         )
+
+        val summoner11Id: String = "64adec69c24c7a26e20d0c4b"
         val summoner11: Summoner = Summoner(
-            id = ObjectId(user1Id),
+            id = ObjectId(summoner11Id),
             userId = user1.id!!,
             user = user1,
             summonerId = "jpxQ_wKfc66bs13Ncj8HfLDkANVy2uyVTyANAtpdWqrY0z8",
@@ -72,8 +75,9 @@ class DummyDataUtil {
             summonerLevel = 1757
         )
 
+        val summoner2Id: String = "64adec5ed768ec70da5cbbd8"
         val summoner2: Summoner = Summoner(
-            id = ObjectId(user2Id),
+            id = ObjectId(summoner2Id),
             userId = user2.id!!,
             user = user2,
             summonerId = "smt3lj26070x4PWxbrcQeYQ0b-9kscR3i8BD4wib5v1FeQ",
@@ -85,8 +89,9 @@ class DummyDataUtil {
             summonerLevel = 2419
         )
 
+        val summoner3Id: String = "64adec632b8bb481c1e19beb"
         val summoner3: Summoner = Summoner(
-            id = ObjectId(user3Id),
+            id = ObjectId(summoner3Id),
             userId = user3.id!!,
             user = user3,
             summonerId = "yyzQKDHvNPiRzxpI8TtV7gplhMMQz6QvdZUNu6bTsGsuMAE",
