@@ -1,11 +1,14 @@
 package dev.yangsijun.gol
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import kotlin.system.exitProcess
 
 @SpringBootApplication
 class BatchApplication
 
 fun main(args: Array<String>) {
-	runApplication<BatchApplication>(*args)
+	val applicationContext = runApplication<BatchApplication>(*args)
+	exitProcess(SpringApplication.exit(applicationContext)) // 배치 완료 후 바로 process 종료 + 아마 actuator 때문에 종료 안되는 듯?
 }
