@@ -21,6 +21,9 @@ dependencies {
 	/* persistence */
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
+	/* */
+	implementation("org.springframework.boot:spring-boot-starter-aop")
+
 	/* test */
 	testImplementation("org.springframework.security:spring-security-test")
 }
