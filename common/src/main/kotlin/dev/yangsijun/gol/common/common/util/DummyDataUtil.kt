@@ -9,7 +9,7 @@ class DummyDataUtil {
 
     companion object {
         val gauthInfo1: Map<String, Any> = mapOf(
-            "email" to "s15011",
+            "email" to "s21041@gsm.hs.kr",
             "name" to "곽희상",
             "grade" to 3,
             "classNum" to 1,
@@ -32,7 +32,7 @@ class DummyDataUtil {
         )
 
         val gauthInfo2: Map<String, Any> = mapOf(
-            "email" to "s11011",
+            "email" to "s11011@gsm.hs.kr",
             "name" to "홍길동",
             "grade" to 3,
             "classNum" to 3,
@@ -55,8 +55,8 @@ class DummyDataUtil {
             )
 
         val gauthInfo3: Map<String, Any> = mapOf(
-            "email" to "s21011",
-            "name" to "양시준",
+            "email" to "s21011@gsm.hs.kr",
+            "name" to "양시준-갱신전",
             "grade" to 3,
             "classNum" to 1,
             "num" to 13,
