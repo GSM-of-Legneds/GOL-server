@@ -32,7 +32,7 @@ class TestJobConfig(
 ) {
     val log by LoggerDelegator()
 
-    // --JOB_NAME=test_job DATE_TIME=2022/06/18-21:31:56-KST
+    // --JOB_NAME=test_job VERSION=1
 
     companion object {
         val CHUNK_SIZE: Int = 100
