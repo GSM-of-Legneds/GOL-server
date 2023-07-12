@@ -1,4 +1,4 @@
-package dev.yangsijun.gol.batch.job.testJob.parameter
+package dev.yangsijun.gol.batch.job.test.parameter
 
 import dev.yangsijun.gol.batch.common.parameter.BaseJobParameter
 

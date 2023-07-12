@@ -1,6 +1,6 @@
-package dev.yangsijun.gol.batch.job.testJob.config
+package dev.yangsijun.gol.batch.job.test.config
 
-import dev.yangsijun.gol.batch.job.testJob.parameter.TestJobParameter
+import dev.yangsijun.gol.batch.job.test.parameter.TestJobParameter
 import dev.yangsijun.gol.common.logger.LoggerDelegator
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
@@ -9,7 +9,6 @@ import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.JobLauncher
-import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.core.repository.JobRepository
 import org.springframework.batch.core.scope.context.ChunkContext
 import org.springframework.batch.core.step.builder.StepBuilder
