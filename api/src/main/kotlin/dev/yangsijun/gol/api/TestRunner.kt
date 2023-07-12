@@ -31,6 +31,29 @@ class TestRunner(
     }
 
     fun doing() {
+        val gauthInfo: Map<String, Any> = mapOf(
+            "email" to "s15031",
+            "name" to "변찬우",
+            "grade" to 3,
+            "classNum" to 4,
+            "num" to 4,
+            "gender" to "male",
+            "profileUrl" to "image131232135.png",
+            "role" to "Student"
+        )
+        val userA = User(
+            id = null,
+            email = gauthInfo["email"] as String,
+            name = gauthInfo["name"] as String,
+            grade = gauthInfo["grade"] as Int,
+            classNum = gauthInfo["classNum"] as Int,
+            num = gauthInfo["num"] as Int,
+            gender = gauthInfo["gender"] as String,
+            profileUrl = gauthInfo["profileUrl"] as String,
+            role = gauthInfo["role"] as String
+        )
+
+        template.insert(userA)
         template.insert(DummyDataUtil.user1)
         template.insert(DummyDataUtil.user2)
         template.insert(DummyDataUtil.user3)
