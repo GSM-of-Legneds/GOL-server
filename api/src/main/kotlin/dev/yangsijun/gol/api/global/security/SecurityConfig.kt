@@ -11,7 +11,6 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler
 
 
-@EnableGAuth
 @Configuration
 class SecurityConfig(
     val gauth: GAuthLoginConfigurer<HttpSecurity>
