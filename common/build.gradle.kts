@@ -17,7 +17,7 @@ dependencies {
 
     /* persistence */
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-    implementation("com.github.GSM-MSG:GAuth-SDK-Java:v2.0.1") // GAuthUserInfo 사용
+    api("com.github.GSM-MSG:GAuth-SDK-Java:v2.0.1") // GAuthUserInfo 사용
 
     /* test */
     testImplementation("io.projectreactor:reactor-test")
