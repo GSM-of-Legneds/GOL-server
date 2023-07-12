@@ -19,7 +19,17 @@ class DummyDataUtil {
             "role" to "Student"
         )
         val user1Id: String = "5f6d775c29be48f7e50ea68e"
-        val user1: User = User(id = ObjectId(user1Id), info = GAuthUserInfo(gauthInfo1))
+        val user1: User = User(
+            id = ObjectId(user1Id),
+            email = gauthInfo1["email"] as String,
+            name = gauthInfo1["name"] as String,
+            grade = gauthInfo1["grade"] as Int,
+            classNum = gauthInfo1["classNum"] as Int,
+            num = gauthInfo1["num"] as Int,
+            gender = gauthInfo1["gender"] as String,
+            profileUrl = gauthInfo1["profileUrl"] as String,
+            role = gauthInfo1["role"] as String
+        )
 
         val gauthInfo2: Map<String, Any> = mapOf(
             "email" to "s11011",
@@ -32,7 +42,17 @@ class DummyDataUtil {
             "role" to "Student"
         )
         val user2Id: String = "64ade43154a38daea72fb205"
-        val user2: User = User(id = ObjectId(user2Id), info = GAuthUserInfo(gauthInfo2))
+        val user2: User = User(
+            id = ObjectId(user2Id),
+            email = gauthInfo2["email"] as String,
+            name = gauthInfo2["name"] as String,
+            grade = gauthInfo2["grade"] as Int,
+            classNum = gauthInfo2["classNum"] as Int,
+            num = gauthInfo2["num"] as Int,
+            gender = gauthInfo2["gender"] as String,
+            profileUrl = gauthInfo2["profileUrl"] as String,
+            role = gauthInfo2["role"] as String
+            )
 
         val gauthInfo3: Map<String, Any> = mapOf(
             "email" to "s21011",
@@ -45,7 +65,17 @@ class DummyDataUtil {
             "role" to "Student"
         )
         val user3Id: String = "64ade439a7d479d4d77d8955"
-        val user3: User = User(id = ObjectId(user3Id), info = GAuthUserInfo(gauthInfo3))
+        val user3: User = User(
+            id = ObjectId(user3Id),
+            email = gauthInfo3["email"] as String,
+            name = gauthInfo3["name"] as String,
+            grade = gauthInfo3["grade"] as Int,
+            classNum = gauthInfo3["classNum"] as Int,
+            num = gauthInfo3["num"] as Int,
+            gender = gauthInfo3["gender"] as String,
+            profileUrl = gauthInfo3["profileUrl"] as String,
+            role = gauthInfo3["role"] as String
+        )
 
         val summoner1Id: String = "64adeb88d48b4515f4b2372f"
         val summoner1: Summoner = Summoner(  // 함

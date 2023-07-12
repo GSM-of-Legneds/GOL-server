@@ -10,7 +10,6 @@ import dev.yangsijun.gol.common.riot.dto.SummonerApiResponse
 import dev.yangsijun.gol.common.riot.mapper.ApiToLeagueMapper
 import dev.yangsijun.gol.common.riot.mapper.ApiToMatchMapper
 import dev.yangsijun.gol.common.riot.mapper.ApiToSummonerMapper
-import gauth.GAuthUserInfo
 import org.bson.types.ObjectId
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -28,7 +27,17 @@ val gauthInfo: Map<String, Any> = mapOf(
     "profileUrl" to "adasdasd",
     "role" to "User"
 )
-val user: User = User(ObjectId(TestRunner.userId), info = GAuthUserInfo(gauthInfo))
+val user: User = User(
+    ObjectId(TestRunner.userId),
+    email = gauthInfo["email"] as String,
+    name = gauthInfo["name"] as String,
+    grade = gauthInfo["grade"] as Int,
+    classNum = gauthInfo["classNum"] as Int,
+    num = gauthInfo["num"] as Int,
+    gender = gauthInfo["gender"] as String,
+    profileUrl = gauthInfo["profileUrl"] as String,
+    role = gauthInfo["role"] as String
+)
 val summoner: Summoner = Summoner(
     id = ObjectId(TestRunner.userId),
     userId = user.id!!,

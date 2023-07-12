@@ -10,7 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 class User(
     @Id var id: ObjectId? = null,
-    val info: GAuthUserInfo,
+    val email: String,
+    val name: String,
+    val grade: Int,
+    val classNum: Int,
+    val num: Int,
+    val gender: String,
+    val profileUrl: String,
+    val role: String,
     val removed: Boolean = false
 ): BaseTimeEntity() {
     override fun toString() = GolObjectUtils.reflectionToString(this)
