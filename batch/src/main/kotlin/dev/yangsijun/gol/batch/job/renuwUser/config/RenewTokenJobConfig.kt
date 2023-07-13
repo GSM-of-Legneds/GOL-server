@@ -107,6 +107,7 @@ class RenewTokenJobConfig(
             .targetType(Token::class.java)
             .template(mongoTemplate)
             .pageSize(CHUNK_SIZE)
+            .jsonQuery("{  }")
             .sorts(Collections.singletonMap("_id", Sort.Direction.ASC))
             .name("renewTokenIR")
             .build()
@@ -158,7 +159,7 @@ class RenewTokenJobConfig(
             .template(mongoTemplate)
             .pageSize(CHUNK_SIZE)
             .jsonQuery("{ removed : false }")
-            .sorts(Collections.singletonMap("id", Sort.Direction.ASC))
+            .sorts(Collections.singletonMap("_id", Sort.Direction.ASC))
             .name("renewUserIR")
             .build()
     }
@@ -171,7 +172,7 @@ class RenewTokenJobConfig(
             // 나중에 다른 커스텀 예외로 핸들링 + 졸업한 학생 처리하는 배치도 추가
             val token: Token = cache.get(item.email)
             // 테스트 때는 토큰이 없어서 예외남, 나도 핸들러기 처리해야 하는데...
-                ?: throw GolBatchException("GAuth에 존재하지 않는 유저입니다.")
+                ?: throw GolBatchException("GAuth에 존재하지 않는 유저입니다. User Email : "+item.email)
             val gAuthUserInfo: GAuthUserInfo = renewUserInfo(token.accessToken)
             val user = User(
                 id = item.id,
