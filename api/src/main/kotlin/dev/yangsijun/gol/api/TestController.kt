@@ -40,7 +40,6 @@ val user: User = User(
 )
 val summoner: Summoner = Summoner(
     id = ObjectId(TestRunner.userId),
-    userId = user.id!!,
     user = user,
     summonerId = "P893mr8WYQG6ITMjD-xj-7PE7j3aL87aXkjmq3t4G9wDCX0",
     accountId = "yVBihO_Uu-t64I1MCSgq2MBwOy9Tzko9iFzJiAethx_u",

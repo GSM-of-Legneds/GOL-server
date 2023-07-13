@@ -17,7 +17,6 @@ import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.JobLauncher
-import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.core.repository.JobRepository
 import org.springframework.batch.core.step.builder.StepBuilder
 import org.springframework.batch.item.ItemProcessor
@@ -31,6 +30,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.core.MongoTemplate
+import org.springframework.data.mongodb.core.query.Criteria
+import org.springframework.data.mongodb.core.query.Query
 import org.springframework.transaction.PlatformTransactionManager
 import java.util.*
 
@@ -101,12 +102,12 @@ class RenewTokenJobConfig(
     @Bean
     @StepScope
     fun renewTokenIR(): MongoItemReader<Token> {
+
         return MongoItemReaderBuilder<Token>()
             .targetType(Token::class.java)
             .template(mongoTemplate)
             .pageSize(CHUNK_SIZE)
-            .jsonQuery("{  }")
-            .sorts(Collections.singletonMap("id", Sort.Direction.ASC))
+            .sorts(Collections.singletonMap("_id", Sort.Direction.ASC))
             .name("renewTokenIR")
             .build()
     }

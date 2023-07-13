@@ -80,7 +80,6 @@ class DummyDataUtil {
         val summoner1Id: String = "64adeb88d48b4515f4b2372f"
         val summoner1: Summoner = Summoner(  // 함
             id = ObjectId(summoner1Id),
-            userId = user1.id!!,
             user = user1,
             summonerId = "DIiLDPb8BjQewHIbqm1adVUIAObCRiA-wHgAU7mKaGjRNgI",
             accountId = "Pkh25cyxBN_6RQF3qD9WZZ1azpFJj-cqWtsqpYEVe2zMz_g",
@@ -94,7 +93,6 @@ class DummyDataUtil {
         val summoner11Id: String = "64adec69c24c7a26e20d0c4b"
         val summoner11: Summoner = Summoner(
             id = ObjectId(summoner11Id),
-            userId = user1.id!!,
             user = user1,
             summonerId = "jpxQ_wKfc66bs13Ncj8HfLDkANVy2uyVTyANAtpdWqrY0z8",
             accountId = "CDZ2E-9mLzkXr-fnN_T2SwCibKyA5OqB7M74A5eELr4lxg4",
@@ -108,7 +106,6 @@ class DummyDataUtil {
         val summoner2Id: String = "64adec5ed768ec70da5cbbd8"
         val summoner2: Summoner = Summoner(
             id = ObjectId(summoner2Id),
-            userId = user2.id!!,
             user = user2,
             summonerId = "smt3lj26070x4PWxbrcQeYQ0b-9kscR3i8BD4wib5v1FeQ",
             accountId = "9PzJa0hdLJNtPqOGLyVHBnZPIxplrOPh2NP8jpAx2bl8",
@@ -122,7 +119,6 @@ class DummyDataUtil {
         val summoner3Id: String = "64adec632b8bb481c1e19beb"
         val summoner3: Summoner = Summoner(
             id = ObjectId(summoner3Id),
-            userId = user3.id!!,
             user = user3,
             summonerId = "yyzQKDHvNPiRzxpI8TtV7gplhMMQz6QvdZUNu6bTsGsuMAE",
             accountId = "GCaJ-N31uOPEPChwIG4R8M5favNRC6MMuYRdB5ZU1jlBnAc",

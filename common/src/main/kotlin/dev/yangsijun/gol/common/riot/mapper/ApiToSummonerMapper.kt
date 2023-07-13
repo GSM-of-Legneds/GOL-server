@@ -12,7 +12,6 @@ class ApiToSummonerMapper {
             return Summoner(
                 id = id,
                 user = user,
-                userId = user.id!!,
                 summonerId = response.id,
                 accountId = response.accountId,
                 puuid = response.puuid,
