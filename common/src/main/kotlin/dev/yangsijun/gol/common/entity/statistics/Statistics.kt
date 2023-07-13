@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.index.CompoundIndex
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
-@CompoundIndex(name = "cmp-idx-by_id", def = "{'summoners.summoner.userId': 1, 'summoners.id': 1, 'createdDate': -1}", unique = true)
-@CompoundIndex(name = "cmp-idx-by_data", def = "{'createdDate': -1}", unique = true)
+@CompoundIndex(name = "cmp-idx-by_id", def = "{'summoners.summoner.userId': 1, 'summoners.id': 1, '_id': -1}", unique = true)
+
 class Statistics(
     @Id var id: ObjectId? = null,
     val summoner: Summoner,
