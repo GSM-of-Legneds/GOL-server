@@ -141,6 +141,7 @@ class RenewTokenJobConfig(
             .writer(renewUserIW())
             .faultTolerant()
             .skip(GolBatchException::class.java).skipLimit(10)
+            .processorNonTransactional() // https://rmcodestar.github.io/spring%20batch/2020/05/21/spring-batch-skip-processorTransactional/ 참고
             .listener(object : SkipListener<User, User> {
                 override fun onSkipInProcess(user: User, t: Throwable) {
                     log.warn("{} Occur - {}, User : {}", t.javaClass.simpleName, t.message, user)
