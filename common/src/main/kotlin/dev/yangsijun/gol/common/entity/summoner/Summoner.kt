@@ -1,6 +1,6 @@
 package dev.yangsijun.gol.common.entity.summoner
 
-import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
+
 import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import dev.yangsijun.gol.common.entity.user.User
 import org.bson.types.ObjectId
@@ -24,6 +24,6 @@ class Summoner(
     val profileIconId: Int,
     val revisionDate: Long,
     val summonerLevel: Long
-): BaseTimeEntity() {
+) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }

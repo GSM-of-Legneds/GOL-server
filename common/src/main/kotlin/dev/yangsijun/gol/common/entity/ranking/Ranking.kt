@@ -1,6 +1,6 @@
 package dev.yangsijun.gol.common.entity.ranking
 
-import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
+
 import dev.yangsijun.gol.common.common.enums.RankingType
 import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import dev.yangsijun.gol.common.entity.summoner.Summoner
@@ -19,6 +19,6 @@ class Ranking(
     val value: String, // 점수
     val additional: Map<String, Any> = emptyMap(), // 아무거나 더 필요한 자료
     val summoner: Summoner
-): BaseTimeEntity() {
+) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }

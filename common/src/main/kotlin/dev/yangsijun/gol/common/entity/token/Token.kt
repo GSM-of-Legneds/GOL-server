@@ -1,6 +1,6 @@
 package dev.yangsijun.gol.common.entity.token
 
-import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
+
 import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
@@ -13,6 +13,6 @@ class Token(
     @Indexed val gauthEmail: String,
     val accessToken: String,
     val refreshToken: String
-): BaseTimeEntity() {
+) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }

@@ -1,6 +1,6 @@
 package dev.yangsijun.gol.common.entity.league
 
-import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
+
 import dev.yangsijun.gol.common.common.enums.game.RankedType
 import dev.yangsijun.gol.common.common.enums.game.GameRankType
 import dev.yangsijun.gol.common.common.enums.game.TierType
@@ -27,6 +27,6 @@ class League(
     val veteran: Boolean,
     val freshBlood: Boolean,
     val hotStreak: Boolean
-): BaseTimeEntity() {
+) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }
