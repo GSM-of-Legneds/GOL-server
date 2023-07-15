@@ -138,7 +138,7 @@ class RenewSummonerJobConfig(
     }
 
     fun renewSummoner(summoner: Summoner): Summoner {
-        val rs: SummonerApiResponse = riotSummonerByPuuidApi.execute(summoner.puuid, 100) // 0.1초 대기
+        val rs: SummonerApiResponse = riotSummonerByPuuidApi.execute(summoner.puuid, 500) // 0.5초 대기
         return ApiToSummonerMapper.responseToSummoner(summoner.id, rs, summoner.user)
     }
 }
