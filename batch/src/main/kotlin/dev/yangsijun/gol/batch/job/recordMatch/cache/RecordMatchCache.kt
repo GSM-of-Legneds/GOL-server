@@ -19,4 +19,9 @@ open class RecordMatchCache {
     fun clear() {
         cache.clear()
     }
+
+    fun toList(): List<String> {
+        val rs : List<String> = cache.toList()
+        return rs
+    }
 }
