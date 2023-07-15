@@ -1,6 +1,6 @@
 package dev.yangsijun.gol.common.entity.user
 
-import dev.yangsijun.gol.common.common.entity.BaseTimeEntity
+
 import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import gauth.GAuthUserInfo
 import org.bson.types.ObjectId
@@ -19,6 +19,6 @@ class User(
     val profileUrl: String,
     val role: String,
     val removed: Boolean = false
-): BaseTimeEntity() {
+) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }

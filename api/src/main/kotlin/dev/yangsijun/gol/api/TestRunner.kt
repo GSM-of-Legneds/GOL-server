@@ -23,7 +23,7 @@ class TestRunner(
 ): CommandLineRunner {
 
     override fun run(vararg args: String?) {
-        //doing()
+        doing()
     }
 
     companion object {
@@ -32,7 +32,7 @@ class TestRunner(
 
     fun doing() {
         val gauthInfo: Map<String, Any> = mapOf(
-            "email" to "s15031",
+            "email" to "s15031@gsm.hs.kr",
             "name" to "변찬우",
             "grade" to 3,
             "classNum" to 4,

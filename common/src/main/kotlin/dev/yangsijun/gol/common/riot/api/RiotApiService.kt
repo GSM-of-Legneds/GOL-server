@@ -11,7 +11,7 @@ abstract class RiotApiService<T, V> {
     protected abstract fun getUrl(pathVariable: V): String
 
     fun sendRequest(pathVariable: V, waitTime: Long): T {
-        Thread.sleep(waitTime)
+        Thread.sleep(waitTime) // millisecond 단위
         return try {
             apiCall(pathVariable)
                 ?: throw RuntimeException("Returned null") // 의도하지 않은 상황
