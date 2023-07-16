@@ -119,7 +119,8 @@ class RenewSummonerJobConfig(
             log.debug("#renewSummonerIP - user : {}", item.toString())
             val oldSummoners: List<Summoner> =
                 mongoTemplate.find(Query(Criteria.where("userId").`is`(item.id)), Summoner::class.java)
-                    ?: throw GolBatchException("Summoner를 등록하지 않은 유저입니다. User ID" + item.id)
+            if (oldSummoners.isEmpty())
+                throw GolBatchException("Summoner를 등록하지 않은 유저입니다. User ID" + item.id)
             log.debug("#renewSummonerIP - old summoners : {}", oldSummoners)
             val renewedSummoners = mutableListOf<Summoner>()
             for (oldSummoner in oldSummoners) {
