@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndex
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
-@CompoundIndex(name = "cmp-idx-by_id", def = "{'summoners.summoner.userId': 1, 'summoners.id': 1, '_id': -1}", unique = true)
+@CompoundIndex(name = "cmp-idx-by_id", def = "{'summoners.summoner.userId': 1, 'summoners.id': 1, 'data.info.gameEndTimestamp': -1}", unique = true)
 
 @CompoundIndex(name = "cmp-idx-by_match", def = "{'data.metadata.matchId': -1}", unique = true)
 class Match(
