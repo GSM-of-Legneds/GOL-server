@@ -3,12 +3,10 @@ package dev.yangsijun.gol.batch.job.renewSummoner.config
 import dev.yangsijun.gol.batch.common.exception.GolBatchException
 import dev.yangsijun.gol.batch.common.util.ParamUtil
 import dev.yangsijun.gol.batch.job.renewSummoner.parameter.RenewSummonerJobParameter
-import dev.yangsijun.gol.batch.job.renuwUser.config.RenewTokenJobConfig
 import dev.yangsijun.gol.common.entity.summoner.Summoner
 import dev.yangsijun.gol.common.entity.user.User
 import dev.yangsijun.gol.common.logger.LoggerDelegator
 import dev.yangsijun.gol.common.riot.api.RiotSummonerByPuuidApi
-import dev.yangsijun.gol.common.riot.common.RiotApiUtil
 import dev.yangsijun.gol.common.riot.dto.SummonerApiResponse
 import dev.yangsijun.gol.common.riot.exception.RiotException
 import dev.yangsijun.gol.common.riot.mapper.ApiToSummonerMapper
@@ -19,14 +17,12 @@ import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.JobLauncher
-import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.core.repository.JobRepository
 import org.springframework.batch.core.step.builder.StepBuilder
 import org.springframework.batch.item.ItemProcessor
+import org.springframework.batch.item.ItemWriter
 import org.springframework.batch.item.data.MongoItemReader
-import org.springframework.batch.item.data.MongoItemWriter
 import org.springframework.batch.item.data.builder.MongoItemReaderBuilder
-import org.springframework.batch.item.data.builder.MongoItemWriterBuilder
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -34,6 +30,7 @@ import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
+import org.springframework.data.mongodb.core.query.Update
 import org.springframework.transaction.PlatformTransactionManager
 import java.util.*
 
@@ -87,7 +84,7 @@ class RenewSummonerJobConfig(
     @JobScope
     fun renewSummonerStep(): Step {
         return StepBuilder("renew_summoner_step", jobRepository)
-            .chunk<User, Summoner>(CHUNK_SIZE, batchTransactionManager)
+            .chunk<User, List<Summoner>>(CHUNK_SIZE, batchTransactionManager)
             .reader(renewSummonerIR())
             .processor(renewSummonerIP())
             .writer(renewSummonerIW())
@@ -117,24 +114,43 @@ class RenewSummonerJobConfig(
 
     @Bean
     @StepScope
-    fun renewSummonerIP(): ItemProcessor<User, Summoner?> {
-        return ItemProcessor<User, Summoner?> { item ->
+    fun renewSummonerIP(): ItemProcessor<User, List<Summoner>> {
+        return ItemProcessor<User, List<Summoner>> { item ->
             log.debug("#renewSummonerIP - user : {}", item.toString())
-            val oldSummoner: Summoner = mongoTemplate.findOne(Query(Criteria.where("userId").`is`(item.id)), Summoner::class.java)
-                ?: throw GolBatchException("Summoner를 등록하지 않은 유저입니다. User ID"+item.id)
-            log.debug("#renewSummonerIP - old summoner : {}", oldSummoner.toString())
-            val renewedSummoner: Summoner = renewSummoner(oldSummoner)
-            log.debug("#renewSummonerIP - new summoner : {}", renewedSummoner.toString())
-            renewedSummoner
+            val oldSummoners: List<Summoner> =
+                mongoTemplate.find(Query(Criteria.where("userId").`is`(item.id)), Summoner::class.java)
+                    ?: throw GolBatchException("Summoner를 등록하지 않은 유저입니다. User ID" + item.id)
+            log.debug("#renewSummonerIP - old summoners : {}", oldSummoners)
+            val renewedSummoners = mutableListOf<Summoner>()
+            for (oldSummoner in oldSummoners) {
+                val renewedSummoner: Summoner = renewSummoner(oldSummoner)
+                log.debug("#renewSummonerIP - new summoner : {}", renewedSummoner.toString())
+                renewedSummoners.add(renewedSummoner)
+            }
+            renewedSummoners
         }
     }
 
     @Bean
     @StepScope
-    fun renewSummonerIW(): MongoItemWriter<Summoner> {
-        return MongoItemWriterBuilder<Summoner>()
-            .template(mongoTemplate)
-            .build()
+    fun renewSummonerIW(): ItemWriter<List<Summoner>> {
+        return ItemWriter<List<Summoner>> { chunk ->
+            for (summoners in chunk) {
+                for (summoner in summoners) {
+                    val update = Update()
+                    update
+                        .set("name", summoner.name)
+                        .set("profileIconId", summoner.profileIconId)
+                        .set("revisionDate", summoner.revisionDate)
+                        .set("summonerLevel", summoner.summonerLevel)
+                    mongoTemplate.updateMulti(
+                        Query.query(Criteria.where("_id").`is`(summoner.id)),
+                        update,
+                        Summoner::class.java
+                    )
+                }
+            }
+        }
     }
 
     fun renewSummoner(summoner: Summoner): Summoner {
