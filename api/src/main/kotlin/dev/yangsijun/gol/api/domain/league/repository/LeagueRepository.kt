@@ -6,5 +6,5 @@ import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface LeagueRepository: MongoRepository<League, ObjectId> {
-    fun findBySummonerOrderByCreatedDateDesc(summoner: Summoner): League?
+    
 }
