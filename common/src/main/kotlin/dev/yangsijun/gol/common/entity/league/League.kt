@@ -6,6 +6,7 @@ import dev.yangsijun.gol.common.common.enums.game.GameRankType
 import dev.yangsijun.gol.common.common.enums.game.TierType
 import dev.yangsijun.gol.common.common.util.GolObjectUtils
 import dev.yangsijun.gol.common.entity.summoner.Summoner
+import dev.yangsijun.gol.common.entity.summoner.SummonerField
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.CompoundIndex
@@ -16,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 class League(
     @Id var id: ObjectId? = null,
-    val summoner: Summoner,
+    val summoner: SummonerField,
     val leagueId: String,
     val rankedType: RankedType,
     val tierType: TierType,

@@ -204,6 +204,7 @@ class RecordMatchJobConfig(
                     log.warn("Saved Match!! MatchId : {}",item)
                     return null
                 }
+                // value가 map이 아니면 내부 데이터를 찾을 수가 없음 -> 형변환해서 받기
                 val rs: Map<String, Map<Any, Any>> =
                     riotMatchByMatchIdApi.execute(item, 500) as Map<String, Map<Any, Any>>
                 val gamePlayersPuuid: List<String> = rs.get("metadata")?.get("participants") as List<String>
