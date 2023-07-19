@@ -6,5 +6,5 @@ import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface MatchRepository: MongoRepository<Match, ObjectId> {
-    fun findBySummonersInOrderByCreatedDateDesc(summoners: MutableCollection<MutableList<Summoner>>): Match?
+
 }
