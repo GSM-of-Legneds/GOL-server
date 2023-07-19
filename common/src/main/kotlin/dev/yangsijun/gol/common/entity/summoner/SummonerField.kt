@@ -26,4 +26,19 @@ class SummonerField(
     val summonerLevel: Long
 ) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
+    companion object {
+        fun from(summoner: Summoner) : SummonerField {
+            return SummonerField(
+                id = summoner.id,
+                user = summoner.user,
+                summonerId = summoner.summonerId,
+                accountId = summoner.accountId,
+                puuid = summoner.puuid,
+                name = summoner.name,
+                profileIconId = summoner.profileIconId,
+                revisionDate = summoner.revisionDate,
+                summonerLevel = summoner.summonerLevel
+            )
+        }
+    }
 }
