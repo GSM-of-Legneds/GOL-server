@@ -158,7 +158,7 @@ class RenewTokenJobConfig(
             .targetType(User::class.java)
             .template(mongoTemplate)
             .pageSize(CHUNK_SIZE)
-            .jsonQuery("{ removed : false }")
+            .jsonQuery("{  }")
             .sorts(Collections.singletonMap("_id", Sort.Direction.ASC))
             .name("renewUserIR")
             .build()
@@ -183,8 +183,7 @@ class RenewTokenJobConfig(
                 num = gAuthUserInfo.num,
                 gender = gAuthUserInfo.gender,
                 profileUrl = gAuthUserInfo.profileUrl,
-                role = gAuthUserInfo.role,
-                removed = item.removed
+                role = gAuthUserInfo.role
             )
             log.debug("#renewUserIP - renew item : {}", user.toString())
             user

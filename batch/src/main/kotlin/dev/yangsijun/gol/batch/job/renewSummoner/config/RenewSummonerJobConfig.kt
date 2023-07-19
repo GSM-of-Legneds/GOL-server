@@ -106,7 +106,7 @@ class RenewSummonerJobConfig(
             .targetType(User::class.java)
             .template(mongoTemplate)
             .pageSize(CHUNK_SIZE)
-            .jsonQuery("{ removed : false }")
+            .jsonQuery("{  }")
             .sorts(Collections.singletonMap("_id", Sort.Direction.ASC))
             .name("renewUserIR")
             .build()

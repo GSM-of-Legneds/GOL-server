@@ -17,8 +17,7 @@ class User(
     val num: Int,
     val gender: String,
     val profileUrl: String,
-    val role: String,
-    val removed: Boolean = false
+    val role: String
 ) {
     override fun toString() = GolObjectUtils.reflectionToString(this)
 }
